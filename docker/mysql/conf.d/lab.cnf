@@ -1,0 +1,14 @@
+[mysqld]
+mysqlx=0
+local_infile=OFF
+skip_name_resolve=ON
+max_connections=40
+max_execution_time=2000
+max_allowed_packet=16M
+sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+innodb_buffer_pool_size=128M
+log_error_verbosity=2
+default_time_zone=+07:00
+
+[client]
+default-character-set=utf8mb4

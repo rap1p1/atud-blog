@@ -1,0 +1,10 @@
+TÀI LIỆU HƯỚNG DẪN LAB
+
+Đây là tệp công khai dùng cho kịch bản tải tệp.
+Tệp chỉ chứa nội dung giả lập, không chứa bí mật thật.
+
+Quy trình vận hành:
+1. Chạy ứng dụng trong môi trường lab cục bộ.
+2. Đăng nhập bằng tài khoản được cấp trong README.
+3. Chỉ thực hiện các thao tác đã mô tả trong tài liệu kịch bản.
+4. Đặt lại dữ liệu sau mỗi buổi trình diễn.

