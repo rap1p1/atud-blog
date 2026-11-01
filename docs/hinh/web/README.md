@@ -2,6 +2,10 @@
 
 Thư mục này lưu ảnh chụp giao diện và kết quả của các kịch bản. Ảnh được chụp ở kích thước 1440 pixel, có thanh chú thích đỏ ghi rõ kịch bản, vị trí nhập và kết quả. Các ảnh chỉ dùng dữ liệu giả lập của lab.
 
+![Trang chủ](01-trang-chu.png)
+
+![Trang quản trị](03-quan-tri.png)
+
 ## 1. Giao diện ban đầu
 
 | Tệp | Nội dung |

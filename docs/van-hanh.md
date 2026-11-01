@@ -61,10 +61,14 @@ curl http://localhost:8080/health
 Kết quả hợp lệ:
 
 ```json
-{"status":"ok","mode":"fixed","database":"ok"}
+{"status":"ok","database":"ok"}
 ```
 
 Mở `http://localhost:8080/` và `http://localhost:8088/`.
+
+![Giao diện trang chủ](hinh/web/01-trang-chu.png)
+
+![Trang quản trị](hinh/web/03-quan-tri.png)
 
 ## 4. Dừng và khởi động lại
 

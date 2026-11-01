@@ -85,6 +85,11 @@ Mã nguồn nằm ngoài thư mục công khai. Tệp tải lên được lưu t
 - Trang minh họa DOM để quan sát khác biệt giữa `innerHTML` và `textContent`.
 - Điểm kiểm tra trạng thái `/health`.
 
+
+![Giao diện trang chủ](docs/hinh/web/01-trang-chu.png)
+
+![Trang quản trị](docs/hinh/web/03-quan-tri.png)
+
 ## 5. Cấu trúc thư mục
 
 ```text
@@ -148,7 +153,7 @@ curl http://localhost:8080/health
 Kết quả mong đợi:
 
 ```json
-{"status":"ok","mode":"fixed","database":"ok"}
+{"status":"ok","database":"ok"}
 ```
 
 Mở `http://localhost:8080/`. Trang mô phỏng CSRF ở `http://localhost:8088/`.
@@ -180,13 +185,10 @@ Sau đó tạo lại dịch vụ ứng dụng:
 ```bash
 docker compose up -d --force-recreate app
 curl http://localhost:8080/health
+docker compose exec -T app printenv APP_MODE
 ```
 
-Kết quả mong đợi:
-
-```json
-{"status":"ok","mode":"vulnerable","database":"ok"}
-```
+Kết quả mong đợi: `health` trả trạng thái `ok`; `APP_MODE` là `vulnerable`.
 
 Quay lại cấu hình đã vá bằng cách đặt `APP_MODE=fixed` và lặp lại lệnh tạo lại dịch vụ. Có thể đặt biến môi trường trực tiếp cho một lần chạy:
 
