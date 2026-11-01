@@ -27,6 +27,17 @@ curl -sS -b "$JAR" -c "$JAR" \
 
 Mã trạng thái `302` sau đăng nhập cho biết yêu cầu thành công và chuyển hướng. Mã `403` cho biết kiểm soát phía máy chủ đã từ chối.
 
+
+**Giao diện ban đầu.** Trang chủ, đăng ký, trang quản trị và khu vực viết bài:
+
+![Trang chủ](hinh/web/01-trang-chu.png)
+
+![Đăng ký](hinh/web/02-dang-ky.png)
+
+![Quản trị](hinh/web/03-quan-tri.png)
+
+![Viết bài](hinh/web/04-viet-bai.png)
+
 ## 2. W1 - Stored XSS
 
 ### Căn cứ
@@ -91,6 +102,19 @@ docker compose down -v
 docker compose up -d --build
 ```
 
+
+**Stored XSS: nhập payload tại ô bình luận.**
+
+![Nhập payload Stored XSS](hinh/web/07-stored-xss-nhap.png)
+
+**Stored XSS: kết quả trên bản có lỗi.**
+
+![Kết quả Stored XSS](hinh/web/08-stored-xss-ket-qua.png)
+
+**Stored XSS: kết quả trên bản đã vá.**
+
+![Stored XSS đã vá](hinh/web/21-stored-xss-da-va.png)
+
 ## 3. W2 - Reflected XSS
 
 ### Căn cứ
@@ -129,6 +153,15 @@ Kết quả:
 ```
 
 Script không thực thi. Với từ khóa dài 5000 ký tự, cấu hình đã vá trả về `400`; cấu hình có lỗi trả về `200`.
+
+
+**Reflected XSS qua URL tìm kiếm.**
+
+![Reflected XSS](hinh/web/09-reflected-xss.png)
+
+**Reflected XSS trên bản đã vá.**
+
+![Reflected XSS đã vá](hinh/web/22-reflected-xss-da-va.png)
 
 ## 4. W3 - DOM-based XSS
 
@@ -179,6 +212,15 @@ output.textContent = 'Giá trị nhận được: ' + value;
 ```
 
 Cùng URL thử nghiệm, trình duyệt hiển thị chuỗi ký tự thay vì tạo phần tử ảnh. CSP không can thiệp vào phép gán `textContent`.
+
+
+**DOM XSS qua tham số URL.**
+
+![DOM XSS](hinh/web/10-dom-xss.png)
+
+**DOM XSS trên bản đã vá.**
+
+![DOM XSS đã vá](hinh/web/23-dom-xss-da-va.png)
 
 ## 5. W4 - CSRF đổi email
 
@@ -242,6 +284,23 @@ Trang lỗi ghi: `Mã xác thực biểu mẫu không hợp lệ hoặc đã h�
 
 Đổi lại email bằng giao diện hoặc đặt lại toàn bộ dữ liệu.
 
+
+**CSRF: biểu mẫu tại trang mô phỏng.**
+
+![Biểu mẫu CSRF](hinh/web/11-csrf-nhap.png)
+
+**CSRF: email bị đổi trên bản có lỗi.**
+
+![Kết quả CSRF](hinh/web/12-csrf-ket-qua.png)
+
+**CSRF: biểu mẫu trên bản đã vá.**
+
+![CSRF đã vá](hinh/web/24-csrf-da-va.png)
+
+**CSRF: yêu cầu bị từ chối.**
+
+![Kết quả CSRF đã vá](hinh/web/25-csrf-ket-qua-da-va.png)
+
 ## 6. W5 - SQL Injection trong đăng nhập
 
 ### Căn cứ
@@ -286,6 +345,23 @@ Tên đăng nhập hoặc mật khẩu không đúng.
 ```
 
 Không có chuyển hướng tới `/admin`, không có thông báo SQL. Truy vấn tham số hóa coi toàn bộ chuỗi là giá trị của cột `username`, không phải mệnh đề SQL.
+
+
+**SQL Injection: nhập payload tại ô đăng nhập.**
+
+![Nhập payload SQL Injection](hinh/web/05-sqli-nhap.png)
+
+**SQL Injection: vào được trang quản trị trên bản có lỗi.**
+
+![Kết quả SQL Injection](hinh/web/06-sqli-ket-qua.png)
+
+**SQL Injection: cùng payload trên bản đã vá.**
+
+![Nhập payload trên bản đã vá](hinh/web/26-sqli-nhap-da-va.png)
+
+**SQL Injection: đăng nhập bị từ chối.**
+
+![Kết quả SQL Injection đã vá](hinh/web/27-sqli-ket-qua-da-va.png)
 
 ## 7. W6 - Vét cạn mật khẩu
 
@@ -357,6 +433,15 @@ Trong lúc trình diễn, có thể xóa bản ghi thử nghiệm:
 bash scripts/mysql-app.sh -e "DELETE FROM login_attempts;"
 ```
 
+
+**Vét cạn mật khẩu trên bản có lỗi.**
+
+![Vét cạn mật khẩu](hinh/web/13-brute-force.png)
+
+**Khóa tạm sau năm lần sai trên bản đã vá.**
+
+![Khóa đăng nhập](hinh/web/28-brute-force-da-va.png)
+
 ## 8. W7 - Cố định và phát lại mã phiên
 
 ### Căn cứ
@@ -420,6 +505,15 @@ sau đăng xuất: 302
 ```
 
 Mã cố định ban đầu bị từ chối. Sau đăng nhập, mã phiên đổi. Sau đăng xuất, mã cũ không còn truy cập được. Cấu hình đã vá còn kiểm tra `used_at`, `expires_at` và trạng thái phiên ở mỗi yêu cầu.
+
+
+**Phát lại cookie phiên sau đăng xuất trên bản có lỗi.**
+
+![Phát lại phiên](hinh/web/14-session-replay.png)
+
+**Cookie cũ bị từ chối trên bản đã vá.**
+
+![Phiên cũ bị từ chối](hinh/web/29-session-da-va.png)
 
 ## 9. W8 - Mã đặt lại mật khẩu yếu
 
@@ -497,6 +591,23 @@ Gửi lại biểu mẫu với mã cũ cũng bị từ chối. Mã hết hạn s
 
 Đặt lại toàn bộ dữ liệu để trả mật khẩu lab về mặc định.
 
+
+**Mã đặt lại hiển thị trên trang ở bản có lỗi.**
+
+![Mã đặt lại](hinh/web/15-reset-nhap.png)
+
+**Dùng lại mã đặt lại trên bản có lỗi.**
+
+![Dùng lại mã](hinh/web/16-reset-ket-qua.png)
+
+**Yêu cầu đặt lại trên bản đã vá.**
+
+![Yêu cầu đặt lại](hinh/web/30-reset-da-va.png)
+
+**Mã đã dùng bị từ chối trên bản đã vá.**
+
+![Mã đã dùng bị từ chối](hinh/web/31-reset-ket-qua-da-va.png)
+
 ## 10. W9 - Lạm dụng quy trình xuất bản
 
 ### Căn cứ
@@ -571,6 +682,23 @@ Trạng thái trong cơ sở dữ liệu vẫn là `draft`. Quy trình hợp l�
 bash scripts/mysql-app.sh -e "UPDATE posts SET status='draft' WHERE id=5;"
 ```
 
+
+**Độc giả chọn trạng thái Xuất bản.**
+
+![Chọn trạng thái xuất bản](hinh/web/17-workflow-nhap.png)
+
+**Bài viết bị xuất bản sai quy trình.**
+
+![Kết quả xuất bản](hinh/web/18-workflow-ket-qua.png)
+
+**Giao diện trạng thái trên bản đã vá.**
+
+![Giao diện đã vá](hinh/web/32-workflow-da-va.png)
+
+**Yêu cầu xuất bản trực tiếp bị từ chối.**
+
+![Yêu cầu bị từ chối](hinh/web/33-workflow-ket-qua-da-va.png)
+
 ## 11. W10 - Duyệt đường dẫn khi tải tệp
 
 ### Căn cứ
@@ -621,6 +749,15 @@ Kết quả:
 ```
 
 Tệp riêng của người khác trả về `403`; tệp không tồn tại trả về `404`.
+
+
+**Duyệt đường dẫn đọc tệp riêng trên bản có lỗi.**
+
+![Duyệt đường dẫn](hinh/web/19-traversal.png)
+
+**Yêu cầu duyệt đường dẫn bị chặn trên bản đã vá.**
+
+![Duyệt đường dẫn bị chặn](hinh/web/34-traversal-da-va.png)
 
 ## 12. Tổng hợp kết quả
 
