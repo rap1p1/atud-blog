@@ -1,6 +1,42 @@
 # ATUD Blog - môi trường thực hành an toàn ứng dụng web và cơ sở dữ liệu
 
 
+> Mở thư mục của kịch bản để đọc lý thuyết, kỹ thuật/công cụ, dữ liệu thử, cách thực hiện, kết quả, biện pháp và bằng chứng. Chỉ chạy trong môi trường lab cục bộ bằng dữ liệu giả.
+
+## Bắt đầu từ một kịch bản
+
+### An toàn ứng dụng Web
+
+| Kịch bản | Mở tài liệu |
+|---|---|
+| 1. Stored XSS | [Mở kịch bản 1](docs/kich-ban/web/01-stored-xss/README.md) |
+| 2. Reflected XSS | [Mở kịch bản 2](docs/kich-ban/web/02-reflected-xss/README.md) |
+| 3. DOM-based XSS | [Mở kịch bản 3](docs/kich-ban/web/03-dom-xss/README.md) |
+| 4. CSRF đổi email | [Mở kịch bản 4](docs/kich-ban/web/04-csrf-doi-email/README.md) |
+| 5. SQL Injection trong đăng nhập | [Mở kịch bản 5](docs/kich-ban/web/05-sql-injection-dang-nhap/README.md) |
+| 6. Vét cạn mật khẩu | [Mở kịch bản 6](docs/kich-ban/web/06-vet-can-mat-khau/README.md) |
+| 7. Cố định và phát lại mã phiên | [Mở kịch bản 7](docs/kich-ban/web/07-phat-lai-phien/README.md) |
+| 8. Mã đặt lại mật khẩu yếu | [Mở kịch bản 8](docs/kich-ban/web/08-dat-lai-mat-khau/README.md) |
+| 9. Lạm dụng quy trình xuất bản | [Mở kịch bản 9](docs/kich-ban/web/09-lam-dung-quy-trinh/README.md) |
+| 10. Duyệt đường dẫn khi tải tệp | [Mở kịch bản 10](docs/kich-ban/web/10-duyet-duong-dan/README.md) |
+
+### An toàn cơ sở dữ liệu
+
+| Mục | Mở tài liệu |
+|---|---|
+| 1. Mật khẩu mặc định và yếu | [Mở mục 1](docs/kich-ban/csdl/01-mat-khau-yeu/README.md) |
+| 2. SQL Injection tại DBMS | [Mở mục 2](docs/kich-ban/csdl/02-sql-injection-dbms/README.md) |
+| 3. Quyền người dùng và nhóm quá mức | [Mở mục 3](docs/kich-ban/csdl/03-quyen-qua-muc/README.md) |
+| 4. Tính năng DBMS không cần thiết | [Mở mục 4](docs/kich-ban/csdl/04-tinh-nang-khong-can-thiet/README.md) |
+| 5. Quản lý cấu hình sai | [Mở mục 5](docs/kich-ban/csdl/05-quan-ly-cau-hinh/README.md) |
+| 6. Tràn bộ đệm | [Mở mục 6](docs/kich-ban/csdl/06-tran-bo-dem/README.md) |
+| 7. Leo thang đặc quyền | [Mở mục 7](docs/kich-ban/csdl/07-leo-thang-dac-quyen/README.md) |
+| 8. Từ chối dịch vụ | [Mở mục 8](docs/kich-ban/csdl/08-tu-choi-dich-vu/README.md) |
+| 9. DBMS chưa cập nhật | [Mở mục 9](docs/kich-ban/csdl/09-dbms-chua-cap-nhat/README.md) |
+| 10. Dữ liệu không mã hóa | [Mở mục 10](docs/kich-ban/csdl/10-du-lieu-khong-ma-hoa/README.md) |
+
+[Hướng dẫn chạy lab](docs/van-hanh.md) · [Nhật ký kiểm chứng](docs/kiem-chung.md) · [Cấu trúc repo](#5-cấu-trúc-thư-mục)
+
 ## Bắt đầu nhanh
 
 Yêu cầu: Docker Engine kèm Docker Compose; các cổng `8080`, `8088`, `3307` còn trống.
@@ -24,7 +60,7 @@ Mở `http://localhost:8080/` để xem blog và `http://localhost:8088/` cho tr
 
 Trên Windows, thay `cp .env.example .env` bằng `Copy-Item .env.example .env`.
 
-Hướng dẫn đầy đủ, cách chuyển cấu hình và đặt lại dữ liệu ở mục 7 đến mục 9.
+Hướng dẫn đầy đủ, cách chuyển cấu hình và đặt lại dữ liệu ở mục 7, 8, 9 và 13.
 
 ## 1. Giới thiệu
 
@@ -86,9 +122,9 @@ Mã nguồn nằm ngoài thư mục công khai. Tệp tải lên được lưu t
 - Điểm kiểm tra trạng thái `/health`.
 
 
-![Giao diện trang chủ](docs/hinh/web/01-trang-chu.png)
+![Giao diện trang chủ](docs/hinh/web/general/01-trang-chu.png)
 
-![Trang quản trị](docs/hinh/web/03-quan-tri.png)
+![Trang quản trị](docs/hinh/web/general/03-quan-tri.png)
 
 ## 5. Cấu trúc thư mục
 
@@ -114,10 +150,18 @@ Mã nguồn nằm ngoài thư mục công khai. Tệp tải lên được lưu t
 │   ├── mysql
 │   └── php
 ├── docs
+│   ├── README.md             # mục lục tài liệu
 │   ├── bang-chung
 │   ├── hinh
-│   ├── kich-ban-web.md
-│   ├── loi-hong-csdl.md
+│   ├── kich-ban
+│   │   ├── web
+│   │   │   ├── README.md
+│   │   │   └── 01-stored-xss/ ... 10-duyet-duong-dan/
+│   │   └── csdl
+│   │       ├── README.md
+│   │       └── 01-mat-khau-yeu/ ... 10-du-lieu-khong-ma-hoa/
+│   ├── kich-ban-web.md          # lối vào nhóm kịch bản Web
+│   ├── loi-hong-csdl.md         # lối vào nhóm mục CSDL
 │   ├── kiem-chung.md
 │   ├── phan-cong.md
 │   └── van-hanh.md
@@ -200,37 +244,37 @@ Không cần tạo lại cơ sở dữ liệu khi chuyển cấu hình. Tuy nhi�
 
 ## 10. Ma trận kịch bản web
 
-| Mã | Kịch bản | Căn cứ giáo trình | Chức năng | Kết quả bản có lỗi | Biện pháp ở bản đã vá |
-|---|---|---|---|---|---|
-| W1 | Stored XSS | Chương 2, mục 2.1.2.1 | Bình luận | Mã script được lưu và thực thi khi mở bài viết | Mã hóa đầu ra theo ngữ cảnh HTML |
-| W2 | Reflected XSS | Chương 2, mục 2.1.2.2 | Tìm kiếm | Chuỗi tìm kiếm được phản hồi vào HTML | Mã hóa từ khóa khi hiển thị |
-| W3 | DOM-based XSS | Chương 2, mục 2.1.2.3 | Trang minh họa DOM | Tham số URL được gán vào `innerHTML` | Dùng `textContent` |
-| W4 | CSRF | Chương 2, mục 2.2 | Đổi email | Biểu mẫu từ cổng khác được chấp nhận | Kiểm tra mã CSRF và `SameSite=Strict` |
-| W5 | SQL Injection | Chương 2, mục 2.3 | Đăng nhập | Chuỗi `' OR '1'='1' -- ` vượt qua xác thực | Truy vấn tham số hóa và `password_verify` |
-| W6 | Vét cạn mật khẩu | Chương 2, mục 2.4.2.2 | Đăng nhập | Không giới hạn số lần thử | Giới hạn 5 lần trong 15 phút |
-| W7 | Cố định và phát lại phiên | Mục 2.4.2.1; Chương 3, mục 3.2.2 | Phiên đăng nhập | Mã phiên không đổi sau đăng nhập, không bị thu hồi khi đăng xuất | Đổi mã phiên, hủy phiên, cờ cookie |
-| W8 | Mã đặt lại mật khẩu yếu | Chương 2, mục 2.4.2.4 | Quên mật khẩu | Mã dễ đoán và dùng lại được | Mã ngẫu nhiên, hết hạn, dùng một lần |
-| W9 | Lạm dụng quy trình | Chương 2, mục 2.5.2.1 | Xuất bản bài viết | Người dùng thường tự đặt `status=published` | Kiểm tra vai trò, chủ sở hữu và trạng thái |
-| W10 | Duyệt đường dẫn | Chương 3, mục 3.1.3.2 | Tải tệp | Đọc được tệp ngoài thư mục công khai | Chỉ nhận mã tệp, chuẩn hóa và giới hạn thư mục |
+| Mã | Kịch bản | Chức năng | Kết quả bản có lỗi | Biện pháp ở bản đã vá |
+|---|---|---|---|---|
+| W1 | Stored XSS | Bình luận | Mã script được lưu và thực thi khi mở bài viết | Mã hóa đầu ra theo ngữ cảnh HTML |
+| W2 | Reflected XSS | Tìm kiếm | Chuỗi tìm kiếm được phản hồi vào HTML | Mã hóa từ khóa khi hiển thị |
+| W3 | DOM-based XSS | Trang minh họa DOM | Tham số URL được gán vào `innerHTML` | Dùng `textContent` |
+| W4 | CSRF | Đổi email | Biểu mẫu từ cổng khác được chấp nhận | Kiểm tra mã CSRF và `SameSite=Strict` |
+| W5 | SQL Injection | Đăng nhập | Chuỗi `' OR '1'='1' -- ` vượt qua xác thực | Truy vấn tham số hóa và `password_verify` |
+| W6 | Vét cạn mật khẩu | Đăng nhập | Không giới hạn số lần thử | Giới hạn 5 lần trong 15 phút |
+| W7 | Cố định và phát lại phiên | Phiên đăng nhập | Mã phiên không đổi sau đăng nhập, không bị thu hồi khi đăng xuất | Đổi mã phiên, hủy phiên, cờ cookie |
+| W8 | Mã đặt lại mật khẩu yếu | Quên mật khẩu | Mã dễ đoán và dùng lại được | Mã ngẫu nhiên, hết hạn, dùng một lần |
+| W9 | Lạm dụng quy trình | Xuất bản bài viết | Tài khoản độc giả tự đặt `status=published` | Kiểm tra vai trò, chủ sở hữu và trạng thái |
+| W10 | Duyệt đường dẫn | Tải tệp | Đọc được tệp ngoài thư mục công khai | Chỉ nhận mã tệp, chuẩn hóa và giới hạn thư mục |
 
-Chi tiết lệnh, kết quả quan sát và cách đặt lại dữ liệu nằm trong [docs/kich-ban-web.md](docs/kich-ban-web.md).
+Chi tiết lệnh, kết quả quan sát và cách đặt lại dữ liệu nằm trong [hướng dẫn kịch bản Web](docs/kich-ban/web/README.md).
 
 ## 11. Ma trận lỗ hổng cơ sở dữ liệu
 
-| Mã | Mục trong giáo trình | Cách kiểm tra trong lab | Biện pháp và bằng chứng |
+| Mã | Mục kiểm tra | Cách kiểm tra | Biện pháp và bằng chứng |
 |---|---|---|---|
-| D1 | Default and Weak Passwords | Thử mật khẩu yếu với tài khoản ứng dụng | Mật khẩu mạnh, không có tài khoản ẩn danh, dùng `caching_sha2_password` |
-| D2 | SQL Injection in the DBMS | So sánh truy vấn ghép chuỗi và truy vấn tham số hóa | Ứng dụng dùng prepared statement; đầu vào không đổi nghĩa truy vấn |
-| D3 | Excessive User & Group Privileges | Kiểm tra `SHOW GRANTS` của `atud_app` | Chỉ `SELECT`, `INSERT`, `UPDATE`, `DELETE` trên một lược đồ |
-| D4 | Unnecessary Enabled DBMS Features | Liệt kê plugin, `local_infile`, MySQL X | Tắt `local_infile`, tắt MySQL X, không cấp `FILE` |
-| D5 | Broken Configuration Management | Kiểm tra vị trí bí mật, tệp `.env`, nhật ký | Bí mật nằm trong biến môi trường; `.env` bị loại khỏi Git và Docker context |
-| D6 | Buffer Overflows | Gửi đầu vào vượt giới hạn vào tìm kiếm | Giới hạn độ dài, `max_allowed_packet`, runtime được quản lý và vá |
-| D7 | Privilege Escalation | Tài khoản thường gọi trang quản trị; tài khoản DB thử thao tác quản trị | Kiểm tra vai trò ở máy chủ; tài khoản DB bị từ chối |
-| D8 | Denial of Service | Đo truy vấn `SLEEP` có giới hạn, kiểm tra cấu hình | `max_execution_time`, `max_connections`, giới hạn kết quả và tần suất |
-| D9 | Unpatched Database | Ghi nhận phiên bản và nguồn image | Dùng image `mysql:lts`, có quy trình cập nhật và kiểm tra lại |
-| D10 | Unencrypted Data | Kiểm tra mật khẩu và mã đặt lại trong CSDL | Băm mật khẩu bằng bcrypt; mã đặt lại lưu dạng băm SHA-256 |
+| D1 | Mật khẩu mặc định và yếu | Thử mật khẩu yếu với tài khoản ứng dụng | Mật khẩu mạnh, không có tài khoản ẩn danh, dùng `caching_sha2_password` |
+| D2 | SQL Injection tại DBMS | So sánh truy vấn ghép chuỗi và truy vấn tham số hóa | Ứng dụng dùng prepared statement; đầu vào không đổi nghĩa truy vấn |
+| D3 | Quyền người dùng và nhóm quá mức | Kiểm tra `SHOW GRANTS` của `atud_app` | Chỉ `SELECT`, `INSERT`, `UPDATE`, `DELETE` trên một lược đồ |
+| D4 | Tính năng DBMS không cần thiết | Liệt kê plugin, `local_infile`, MySQL X | Tắt `local_infile`, tắt MySQL X, không cấp `FILE` |
+| D5 | Quản lý cấu hình sai | Kiểm tra vị trí bí mật, tệp `.env`, nhật ký | Bí mật nằm trong biến môi trường; `.env` bị loại khỏi Git và Docker context |
+| D6 | Tràn bộ đệm | Gửi đầu vào vượt giới hạn vào tìm kiếm | Giới hạn độ dài, `max_allowed_packet`, runtime được quản lý và vá |
+| D7 | Leo thang đặc quyền | Tài khoản thường gọi trang quản trị; tài khoản DB thử thao tác quản trị | Kiểm tra vai trò ở máy chủ; tài khoản DB bị từ chối |
+| D8 | Từ chối dịch vụ | Đo truy vấn `SLEEP` có giới hạn, kiểm tra cấu hình | `max_execution_time`, `max_connections`, giới hạn kết quả và tần suất |
+| D9 | DBMS chưa cập nhật | Ghi nhận phiên bản và nguồn image | Dùng image `mysql:lts`, có quy trình cập nhật và kiểm tra lại |
+| D10 | Dữ liệu không mã hóa | Kiểm tra mật khẩu và mã đặt lại trong CSDL | Băm mật khẩu bằng bcrypt; mã đặt lại lưu dạng băm SHA-256 |
 
-Chi tiết lệnh và kết quả nằm trong [docs/loi-hong-csdl.md](docs/loi-hong-csdl.md).
+Chi tiết lệnh và kết quả nằm trong [hướng dẫn kiểm tra CSDL](docs/kich-ban/csdl/README.md).
 
 ## 12. Kiểm chứng
 
@@ -262,8 +306,8 @@ Sau khi đặt lại, chạy lại `curl http://localhost:8080/health` trước 
 
 ## 14. Tài liệu
 
-- [Kịch bản tấn công web](docs/kich-ban-web.md)
-- [Mười lỗ hổng cơ sở dữ liệu](docs/loi-hong-csdl.md)
+- [Kịch bản tấn công web](docs/kich-ban/web/README.md)
+- [Mười mục cơ sở dữ liệu](docs/kich-ban/csdl/README.md)
 - [Kiểm chứng và bằng chứng](docs/kiem-chung.md)
 - [Hướng dẫn vận hành](docs/van-hanh.md)
 - [Phân công công việc](docs/phan-cong.md)

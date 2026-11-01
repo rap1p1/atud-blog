@@ -5,7 +5,7 @@
 - Hệ quản trị: MySQL LTS, phiên bản ghi nhận `8.4.6`.
 - Cấu hình: `docker/mysql/conf.d/lab.cnf`.
 - Ứng dụng kết nối bằng `atud_app`, không dùng `root`.
-- Dữ liệu: `atud_blog`, bốn tài khoản giả lập.
+- Dữ liệu: `atud_blog`, năm tài khoản giả lập.
 - Thời điểm: 01/11/2026.
 
 ## 2. Tài khoản và quyền
@@ -37,9 +37,10 @@ Truy vấn ghép chuỗi:
 ```text
 id  username  role
 1   admin     admin
-2   bien      user
-3   minh      user
-4   ngoc      user
+2   bien      author
+3   minh      author
+4   ngoc      author
+5   lan       user
 ```
 
 Truy vấn tham số hóa với cùng đầu vào:
@@ -97,6 +98,7 @@ admin     $2b$12$      60           45a1878eca685306b8f0020de07eafea
 bien      $2b$12$      60           1695899fc0f66161045ae0050a05df13
 minh      $2b$12$      60           bfb9aef75959ca36ca54985ac8dc3498
 ngoc      $2b$12$      60           6abb86f880f1387b956788571111927c
+lan       $2b$12$      60           93a20562525dd2a30485ea543bf04f3e
 
 id  user_id  token_prefix      token_length  expires_at           used_at
 1   3        d29f5b8d2e4f7f65  64            2026-11-01 21:11:56  NULL

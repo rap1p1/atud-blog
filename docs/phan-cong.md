@@ -12,7 +12,7 @@
 
 | Hạng mục | Thành viên 1 | Thành viên 2 | Thành viên 3 |
 |---|---|---|---|
-| Khảo sát đề và giáo trình | Chủ trì | Tham gia | Tham gia |
+| Khảo sát đề và tài liệu môn học | Chủ trì | Tham gia | Tham gia |
 | Thiết kế lược đồ `users`, `posts`, `comments`, `uploads`, `password_reset_tokens` | Chủ trì | Góp ý | Kiểm tra ràng buộc |
 | Xây dựng đăng nhập, phiên, phân quyền | Chủ trì | Kiểm thử | Góp ý |
 | Bài viết, bình luận, tìm kiếm, tệp | Tham gia | Chủ trì | Góp ý |
@@ -28,7 +28,7 @@
 
 | Giai đoạn | Nội dung | Kết quả cần có |
 |---|---|---|
-| 1 | Chốt ma trận mười kịch bản web và mười mục CSDL | Bảng đối chiếu có mã, mục giáo trình, chức năng |
+| 1 | Chốt ma trận mười kịch bản web và mười mục CSDL | Bảng đối chiếu có mã, mục kiểm tra, chức năng |
 | 2 | Hoàn thiện blog cơ bản | Đăng nhập, bài viết, bình luận, tìm kiếm, quản trị, tệp |
 | 3 | Tạo dữ liệu lab | Bốn tài khoản, năm bài viết, bình luận, tệp mồi |
 | 4 | Thêm điểm lỗi có kiểm soát | Mỗi lỗi nằm ở đúng chức năng, có công tắc cấu hình |

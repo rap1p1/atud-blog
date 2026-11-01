@@ -125,7 +125,7 @@ lần 3: 200
 lần 4: 200
 lần 5: 200
 đăng nhập đúng: 429
-tạm khóa do quá nhiều lần đăng nhập thất bại. Thử lại sau 15 phút.
+Tài khoản đang tạm khóa do nhiều lần đăng nhập không thành công. Vui lòng thử lại sau 15 phút.
 ```
 
 ### W7 - Cố định và phát lại phiên
@@ -198,7 +198,7 @@ Bản đã vá:
 
 ```text
 yêu cầu duyệt: 400
-Chức năng tải tệp chỉ nhận mã tệp hợp lệ, không nhận đường dẫn.
+Tệp không tồn tại hoặc không hợp lệ.
 tệp công khai: 200 (24853 byte)
 ```
 
